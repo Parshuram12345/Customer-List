@@ -7,7 +7,7 @@ function CustomerAbout() {
     const [customerdetails, setCustomerDetails] = useState({})
     const { BaseUrl } = data;
     const { id } = useParams()
-    console.log(id)
+    console.log(id,typeof id)
     //---get customer details----///
     async function getTheCustomerData() {
         return await axios.get(`${BaseUrl}/Customer`)
@@ -23,13 +23,12 @@ function CustomerAbout() {
     useEffect(() => {
         getTheCustomerData()
             .then((res) => {
-                setCustomerDetails(res?.data?.find(({ id }) => id == id))
+                setCustomerDetails(res?.data?.find((elem) => elem.id===id))
             })
             .catch((err) => {
                 console.log(err)
             })
     }, [])
-    console.log(customerdetails)
     return (
         <div>
              <h3>Full Name</h3>
