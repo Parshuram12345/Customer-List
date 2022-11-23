@@ -84,7 +84,7 @@ function CustomerList() {
           {
             customerLIst.map(({ id, name, phone, email, city, country, women }, index) => {
               return (
-                <tr key={id} onClick={() => navigate(`${BaseUrl}/Customer/${id}`)}>
+                <tr style={{cursor:"pointer"}} key={id} onClick={() => navigate(`/customer/${id}`)}>
                   <td>
                     <img src={`https://randomuser.me/api/portraits/${women}/${id}.jpg`} alt={`avatar_img${index}`} />
                   </td>
